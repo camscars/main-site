@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Contact{% endblock %}
+
+{% block style %}
+.text-align-center {
+		text-align: center;
+}
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+		<h1 class='text-align-center'>{{ title }}</h1>
+
+		<form method='POST' action='.'>{% csrf_token %}
+		{{ form|crispy }}
+
+		<input class='btn btn-primary' type='submit' value='Send Message'/>
+
+		</form>
+	</div>
+</div>
+{% endblock %}

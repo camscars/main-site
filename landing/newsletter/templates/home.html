@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}Home{% endblock %}
+
+
+{% block jumbo %}
+    <div class="container-fluid">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="row">
+      	<div cLass="col-sm-8">
+      	<div class="jumbotron">
+        <h1>Hello!</h1>
+        <p>This site is basically just going to be used as a hub that I will continually expand as I complete more projects. I want to work on creating various aspects of sites myself using as proper django conventions as I am able instead of just using open source projects. The ultimate goal is to practice combining all these various applications/components and routing the urls correctly, like in a real site. For now I will just link to completed project's githubs until I have enough.</p>
+        <p>
+        </p>
+       	</div>
+      </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-6 col-md-3">
+		<h1>{{ title }}</h1>
+
+		<form method='POST' action='.'>{% csrf_token %}
+		{{ form|crispy }}
+
+		<input class='btn btn-primary' type='submit' value='Sign Up'/>
+
+		</form>
+	</div>
+</div>
+<div class="row">
+<div class="col-sm-3">
+<i class="fa fa-comment-o fa-stack-2x"></i>
+</div>
+</div>
+<p class='lead text-align-center'>Built with Django &amp; Bootstrap</p>
+{% endblock %}
+
+
