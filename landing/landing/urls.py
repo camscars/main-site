@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from newspage.views import LinkListView
 
 #Update the depreciated ones to include versions soon and
 #remember to make sure shop url works
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^shop/', include('shop.urls', namespace='shop')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
+    url(r'^news/', LinkListView.as_view(), name='newspage'),
 ]
 
 if settings.DEBUG:
