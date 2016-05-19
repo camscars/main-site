@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'news/base.html' %}
+
+    {%block title %}News List{% endblock %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Cam's News Feed</h1>
+        <p>Searching the web to find some of the latest news from my favorite sources.</p>
+        <p><a class="btn btn-primary btn-sm" href="{% url 'news:feeds_list' %}" role="button">View Feed List</a></p>
+      </div>
+    </div>
+
+   	<div class="container">
+   	{% for row in rows %}
+    <div class="col-md-6">
+
+      {% for entry in row %}
+      <h2>{{ entry.title }}</h2>
+      <p>{{ entry.description }}</p>
+      <p><a href="{{entry.url}}" target="_blank" class="btn btn-primary">View details</a></p>
+      {% endfor %}
+   	</div>
+    {% endfor %}
+{% endblock %}
+</html>

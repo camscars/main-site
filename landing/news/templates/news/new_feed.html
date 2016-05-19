@@ -1,0 +1,20 @@
+<html>
+{% extends 'news/base.html' %}
+
+{% block title %}New Feeds{% endblock %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1>New Feed</h1>
+      </div>
+    </div>
+
+   	<div class="container">
+      <form method="post">
+      	{{ form.as_p }}
+      	{% csrf_token %}
+      	<button type="submit" class="btn btn-primary">Add Feed</button>
+      </form>
+{% endblock %}
